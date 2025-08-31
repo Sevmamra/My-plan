@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nedits Edition — 2026 Jan–Jun Roadmap (Detailed)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --accent:#5b21b6; --accent-2:#ff5a5f;
+      --muted:#6b7280; --paper-padding:18mm;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);font-family:'Poppins',system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#111}
+    .wrap{max-width:900px;margin:18px auto;}
+    header{background:linear-gradient(90deg,var(--accent),#6d28d9 60%, #ef4444);color:#fff;padding:18px;border-radius:10px 10px 8px 8px;box-shadow:0 6px 20px rgba(13,15,30,.08)}
+    header h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    header p{margin:6px 0 0;font-size:13px;opacity:.95}
+    .actions{margin-top:10px;display:flex;gap:8px}
+    .btn{background:#fff;color:var(--accent);padding:8px 12px;border-radius:8px;font-weight:600;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(11,15,30,.06)}
+    .btn.secondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)}
+    .page{width:210mm;min-height:297mm;margin:18px auto;background:var(--card);padding:var(--paper-padding);box-shadow:0 10px 30px rgba(12,15,25,.06);border-radius:6px;box-sizing:border-box;page-break-after:always;}
+    .month-header{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+    .month-badge{width:86px;height:86px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#9f7aea);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:10px;color:#000;box-shadow:0 6px 18px rgba(99,102,241,.14)}
+    .month-badge h2{margin:0;font-size:18px;line-height:1}
+    .month-badge small{opacity:.95;font-size:11px}
+    .month-title h3{margin:0;font-size:18px}
+    .month-title p{margin:6px 0 0;color:var(--muted);font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+    .card{background:linear-gradient(180deg,#fff,#fbfbff);padding:12px;border-radius:9px;border:1px solid rgba(15,15,25,.04);box-shadow:0 6px 18px rgba(15,15,30,.03)}
+    .card h4{margin:0 0 8px;font-size:14px;color:var(--accent)}
+    .card ul{margin:0;padding-left:18px;color:#111;}
+    .card li{margin-bottom:6px;font-size:13px;color:#222}
+    .small{font-size:12px;color:var(--muted)}
+    .checklist{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+    .chip{display:inline-block;padding:6px 8px;border-radius:999px;background:#f3f4f6;color:#333;font-weight:600;font-size:12px;margin-right:6px}
+    footer{margin-top:18px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
+    .spacer {
+      height: 297mm;
+      page-break-after: always;
+      display: none;
+    }
+    /* print rules */
+    @media print{
+      body{background:white}
+      .wrap{max-width:100%}
+      header{box-shadow:none;border-radius:0;padding:6px}
+      .page{box-shadow:none;margin:0;border:none;border-radius:0;padding:12mm;page-break-after:always}
+      .btn,.actions{display:none}
+      footer{font-size:11px}
+      .spacer {
+        display: block;
+      }
+    }
+    /* responsive */
+    @media(max-width:920px){.grid{grid-template-columns:1fr} .month-badge{width:72px;height:72px} .wrap{padding:12px} .page{width:auto}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Nedits Edition — Detailed Skills Roadmap (Jan–Jun 2026)</h1>
+      <p>Six printable pages: each page = one month. Open this page in Chrome (or any browser) and use <strong>Print → Save as PDF</strong> with A4 paper. Each month contains week-by-week tasks, resources, daily routine, tools and deliverables.</p>
+      <div class="actions">
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+        <button class="btn secondary" onclick="scrollToMonth('January')">Jump to January</button>
+        <button class="btn secondary" onclick="scrollToMonth('February')">Feb</button>
+        <button class="btn secondary" onclick="scrollToMonth('March')">Mar</button>
+        <button class="btn secondary" onclick="scrollToMonth('April')">Apr</button>
+        <button class="btn secondary" onclick="scrollToMonth('May')">May</button>
+        <button class="btn secondary" onclick="scrollToMonth('June')">Jun</button>
+      </div>
+    </header>
+    
+    <div class="spacer"></div>
+
+    <section class="page" id="January">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#6d28d9,#9333ea)">
+          <h2>January</h2>
+          <small>2026 — Photo Editing I</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Raster fundamentals — Layers, Selections, Masks, Basic Retouch</h3>
+          <p class="small">Goal: Become confident with Photoshop/GIMP workspace and perform non-destructive edits. Deliver 10 before/after images and 1 composite.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Setup & Basics (Days 1–7)</h4>
+          <ul>
+            <li><b>Install & configure:</b> Photoshop (preferred) or GIMP; set up workspace, panels (Layers, Adjustments, History).</li>
+            <li><b>Core tools:</b> Move, Marquee, Lasso, Quick Selection, Crop, Transform.</li>
+            <li><b>File formats:</b> PSD (working), PNG (web), JPG (compressed), TIFF/PDF (print).</li>
+            <li><b>Daily practice:</b> 45–60 min — open 5 images and apply crop, transform, and simple layer adjustments.</li>
+          </ul>
+          <div class="small"><b>Tools:</b> Photoshop / GIMP / Lightroom (optional)</div>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Selections & Masks (Days 8–14)</h4>
+          <ul>
+            <li>Master Quick Selection, Magic Wand, Lasso, and Pen Tool basics; practice edge refining and Select & Mask workspace.</li>
+            <li>Learn layer masks vs erasing (non-destructive approach).</li>
+            <li>Practice: Remove background from 20 different photos including hair/complex edges.</li>
+            <li>Tip: Save selections as channels for complex composites.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Adjustments & Blending (Days 15–21)</h4>
+          <ul>
+            <li>Adjustment layers: Levels, Curves, Hue/Saturation, Color Balance, Vibrance.</li>
+            <li>Blend modes: Multiply, Overlay, Screen — learn use-cases.</li>
+            <li>Practice: Create 5 mood-graded images (moody, warm, clean product, vintage, cinematic).</li>
+            <li>Deliverable: 5 color-graded images + style note (which adjustments used).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — Retouch & Non‑Destructive Workflow (Days 22–31)</h4>
+          <ul>
+            <li>Retouch tools: Clone Stamp, Healing Brush, Spot Healing; dodge & burn basics.</li>
+            <li>Smart Objects & filters; learn to use Camera Raw filter non-destructively.</li>
+            <li>Batch basics: Actions (record/ playback) & Image Processor for exports.</li>
+            <li>Project: Composite 1 scene (background replacement + color match).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="card">
+        <h4>Learning Resources & Where to Study</h4>
+        <ul>
+          <li>Free: YouTube — PiXimperfect, Phlearn, Photoshop Training Channel (search these names).</li>
+          <li>Free: GIMP tutorials (if using GIMP) + official Adobe beginner docs.</li>
+          <li>Optional paid: Udemy Photoshop complete course or Adobe official pathway.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 45–90 min practice depending on CA schedule.</div>
+          <div><span class="chip">Deliverables</span> 10 before/after images, 1 composite, Actions file (resize/export).</div>
+          <div><span class="chip">Checklist</span> Install software • Create project folder • Save PSD versions • Export web copies.</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: get comfortable with workflow & non-destructive edits.</div>
+        <div>Page 1 of 6</div>
+      </footer>
+    </section>
+
+    <section class="page" id="February">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#ef4444,#fb7185)">
+          <h2>February</h2>
+          <small>2026 — Photo Editing II</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Portrait & Product Retouching, Lightroom workflow, Batch Processing</h3>
+          <p class="small">Goal: Learn portrait retouching techniques and produce consistent product images. Deliver 3 themed sets and 1 batch export workflow.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Lightroom Basics & Catalogs</h4>
+          <ul>
+            <li>Understand Lightroom import, catalog structure, Develop panel, crop, lens correction.</li>
+            <li>Practice: Import a photoshoot and create basic edits for 20 photos.</li>
+            <li>Learn export presets and create 2 export profiles (web & print).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Portrait Retouching Advanced</h4>
+          <ul>
+            <li>Frequency separation (skin texture vs colour) basics, dodge & burn for shaping, eye/teeth whitening, hair touch-ups.</li>
+            <li>Practice: Retouch 6 portraits — keep natural look, avoid over-smoothing.</li>
+            <li>Deliverable: 6 retouched portraits + step notes (what was done).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Batch Processing & Actions</h4>
+          <ul>
+            <li>Photoshop Actions: record repeatable steps for resizing, watermarking, color profile conversion.</li>
+            <li>Lightroom presets: create 3 reusable presets (clean product, warm lifestyle, moody).</li>
+            <li>Practice: Create batch action to export 50 product images with watermark.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — E‑commerce Product Edits</h4>
+          <ul>
+            <li>Clipping path basics, shadow creation, white-background consistency, color correction for product catalogs.</li>
+            <li>Project: Edit 10 product images for a local shop (offer to a shop for practice).</li>
+            <li>Deliverable: Product pack (10 web-ready JPEGs) + 2 preview mockups.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4>Resources & Pro Tips</h4>
+        <ul>
+          <li>Use Unsplash/Pexels for practice images. Learn Lightroom export best practices.</li>
+          <li>Keep non-destructive workflow: use smart objects and adjustment layers; save actions and presets in a synced folder (Google Drive).</li>
+          <li>Optional: Study "product photography retouch" playlists on YouTube; consider small local paid gigs to practice real-world images.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 45–90 min: mix Lightroom and Photoshop tasks.</div>
+          <div><span class="chip">Deliverables</span> 3 themed sets (12 images each), 10 product images, 3 LR presets, Actions file.</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: consistent edits & workflow automation for volume work.</div>
+        <div>Page 2 of 6</div>
+      </footer>
+    </section>
+
+    <section class="page" id="March">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#0ea5a5,#06b6d4)">
+          <h2>March</h2>
+          <small>2026 — Graphic Design Principles</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Color, Typography, Layout & Practical Branding</h3>
+          <p class="small">Goal: Master the visual rules that make designs readable and memorable. Deliver a small brand mini-kit and redesign 4 items.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Color Theory & Palettes</h4>
+          <ul>
+            <li>Learn hue/saturation/value, contrast, complementary and analogous palettes.</li>
+            <li>Create 10 palettes: brand, muted, vibrant, monochrome, pastel.</li>
+            <li>Practice: Apply palettes to a poster and a social post each.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Typography Essentials</h4>
+          <ul>
+            <li>Hierarchy, font pairing, line-height, kerning, readable body copy vs display fonts.</li>
+            <li>Practice: Design 3 typographic posters focusing solely on type.</li>
+            <li>Tools: Google Fonts, Typewolf for inspiration, try variable fonts.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Grids & Composition</h4>
+          <ul>
+            <li>Grid systems (8pt, column grids), white space, alignment and visual flow.</li>
+            <li>Practice: Re-layout a cluttered flyer into a clean grid-based layout.</li>
+            <li>Deliverable: 2 refined layouts (poster + brochure page).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — Apply to Branding</h4>
+          <ul>
+            <li>Combine color & typography into a consistent look; design menu, poster, business card & brochure for a cafe project.</li>
+            <li>Document rationale: why colors/fonts chosen, usage rules.</li>
+            <li>Deliverable: Brand mini-kit for the café (logo options, 2 posters, menu, business card).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4>Where to Learn & Practice</h4>
+        <ul>
+          <li>Free: Canva design school articles for basics, YouTube design theory videos.</li>
+          <li>Read or watch summaries of "The Non-Designer's Design Book".</li>
+          <li>Practice with real local examples: redesign a shop's flyer or create a menu for a tiffin service.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 40–75 min: theory + practical layout.</div>
+          <div><span class="chip">Deliverables</span> 10 palettes, 3 typographic posters, 2 layouts, café brand mini-kit.</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: build visual grammar that applies across projects.</div>
+        <div>Page 3 of 6</div>
+      </footer>
+    </section>
+
+    <section class="page" id="April">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#f59e0b,#f97316)">
+          <h2>April</h2>
+          <small>2026 — Vector & Logo Design I</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Pen tool mastery, vector workflows, iconography & logo ideation</h3>
+          <p class="small">Goal: Create clean scalable logos and an icon set. Deliver a 24-icon set & 2 logo concepts vectorized.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Illustrator Setup & Pen Tool Drills</h4>
+          <ul>
+            <li>Install Illustrator or Inkscape. Learn artboards, pen tool, anchor control, bezier curves basics.</li>
+            <li>Daily drill: trace 10 shapes using pen tool and refine paths.</li>
+            <li>Practice: Recreate simple logos to understand curves and balance.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Icon Design & Pathfinder</h4>
+          <ul>
+            <li>Learn shape building: pathfinder, compound shapes, strokes vs fills.</li>
+            <li>Practice: Design 12 icons (monoline) for the café brand.</li>
+            <li>Deliverable: 12 SVG icons exported at multiple sizes.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Logo Sketch → Vectorize</h4>
+          <ul>
+            <li>Sketch 20 quick logo concepts on paper; shortlist 4; vectorize 2 in software.</li>
+            <li>Iterate variations: stacked, horizontal, mark-only.</li>
+            <li>Practice export: SVG (web), EPS/PDF (print), PNG @2x.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — Responsive Logos & Branding Assets</h4>
+          <ul>
+            <li>Create logo guidelines for spacing, color usage, and minimal reproducible mark.</li>
+            <li>Produce favicon & app icon variants; test legibility at 16–32 px.</li>
+            <li>Deliverable: 2 logo concepts + 24-icon pack + export zip.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4>Resources & Practice Tips</h4>
+        <ul>
+          <li>Use vector grids and preview at small sizes constantly. Save SVG cleanly (no excess metadata).</li>
+          <li>Learn shortcuts (P for pen, A for direct select, Shift for constrained shapes).</li>
+          <li>Offer a few free logo concepts to a local shop for real feedback.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 45–90 min pen + icon drills.</div>
+          <div><span class="chip">Deliverables</span> 24 icons (SVG), 2 vector logos (SVG/EPS/PNG).</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: vector precision & logo scalability.</div>
+        <div>Page 4 of 6</div>
+      </footer>
+    </section>
+
+    <section class="page" id="May">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#10b981,#34d399)">
+          <h2>May</h2>
+          <small>2026 — Branding Basics</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Complete brand system, mockups & guidelines</h3>
+          <p class="small">Goal: Turn logo + visuals into a usable brand identity. Deliver a polished 8–12 page brand guide.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Research & Moodboards</h4>
+          <ul>
+            <li>Competitor research: collect 12 references; create a moodboard in Figma/Pinboard.</li>
+            <li>Decide voice & tone: modern, rustic, premium, friendly — document choices.</li>
+            <li>Practice: Build 2 alternate moodboards (vibrant vs muted).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Palette & Typography System</h4>
+          <ul>
+            <li>Choose primary, secondary, accent colors and neutral scale.</li>
+            <li>Choose typefaces: display, heading, body, UI; set scale & line-height.</li>
+            <li>Deliverable: color tokens + typography token sheet.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Visual Language & Photography Style</h4>
+          <ul>
+            <li>Define photo mood, image treatments (filters/presets) and patterns or textures.</li>
+            <li>Create mockups: packaging, bag, signboard, social post template.</li>
+            <li>Practice: apply filters/presets to sample images for consistent look.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — Brand Guideline Draft</h4>
+          <ul>
+            <li>Assemble 8–12 page PDF: logo usage, spacing, do/don't, color codes, type specs, sample applications.</li>
+            <li>Export both print PDF (CMYK hints) and web PDF (RGB optimized).</li>
+            <li>Deliverable: Brand guideline PDF ready to share with clients.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4>Where to Get Assets & Mockups</h4>
+        <ul>
+          <li>Free mockups: search for PSD/PNG mockups; use Figma mockup kits for quick previews.</li>
+          <li>Organize tokens into a reusable Figma library for future projects.</li>
+          <li>Tip: Keep brand files layered & well-named for handoff to clients.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 45–75 min research + design time.</div>
+          <div><span class="chip">Deliverables</span> 8–12 page brand guide PDF, token pack, 3 mockups.</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: produce a client-ready brand package.</div>
+        <div>Page 5 of 6</div>
+      </footer>
+    </section>
+
+    <section class="page" id="June">
+      <div class="month-header">
+        <div class="month-badge" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+          <h2>June</h2>
+          <small>2026 — Portfolio Sprint I</small>
+        </div>
+        <div class="month-title">
+          <h3>Focus: Case-studies, presentable portfolio & Behance/Dribbble launch</h3>
+          <p class="small">Goal: Convert projects from Jan–May into 2 polished case-studies and a 6–8 page printable portfolio.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h4>Week 1 — Case Study Structure</h4>
+          <ul>
+            <li>Write narrative: problem → research → sketches → iterations → final solution → results.</li>
+            <li>Choose 2 flagship projects (e.g., Café brand & Milk Delivery prototype).</li>
+            <li>Practice: Draft 1-page storyboards for each project.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 2 — Visuals & Mockups</h4>
+          <ul>
+            <li>Prepare high-res images: hero shots, process screenshots, close-ups.</li>
+            <li>Create presentation layouts in Figma optimized for A4 print and web hero shots.</li>
+            <li>Deliverable: printable layout for each case study (3 pages each).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 3 — Publish Preparation</h4>
+          <ul>
+            <li>Behance/Dribbble shots: crop sizes, composition, write concise captions and process bullets.</li>
+            <li>Create thumbnail images for each case study; write SEO-friendly titles and tags.</li>
+            <li>Practice: Post one teaser on Instagram to gather feedback.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h4>Week 4 — Portfolio Export & Print Check</h4>
+          <ul>
+            <li>Export a 6–8 page PDF portfolio: ensure bleed / safe margins for print.</li>
+            <li>Proofread copy and run a print test on A4 — check colors and layout.</li>
+            <li>Deliverable: Final portfolio PDF + Behance live post + Instagram teaser content.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h4>Checklist & Next Steps</h4>
+        <ul>
+          <li>Get two local clients (can be exchange-for-work) for real testimonials.</li>
+          <li>Set up a simple portfolio site (Next.js/Netlify) in future months — link portfolio PDF.</li>
+          <li>Keep a folder: /2026-Jun-Portfolio with all source files & exports compressed.</li>
+        </ul>
+        <div class="checklist">
+          <div><span class="chip">Daily</span> 45–90 min polishing and packaging.</div>
+          <div><span class="chip">Deliverables</span> 2 case studies live + 6–8 page printable portfolio PDF.</div>
+        </div>
+      </div>
+
+      <footer>
+        <div>Monthly focus: packaging your work for clients—print & online.</div>
+        <div>Page 6 of 6</div>
+      </footer>
+    </section>
+
+    <p style="text-align:center;margin:24px 0;color:var(--muted)">Made for <strong>Nedits Edition</strong> — Print each page on A4; laminate for your study wall.</p>
+  </div>
+
+  <script>
+    function scrollToMonth(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    }
+    // small print hint popup once
+    (function(){
+      if(!localStorage.getItem('roadmapPrintHint')){
+        setTimeout(()=>alert('Tip: Use "Print → Save as PDF" and choose A4. Enable Background Graphics for best colors.'),800);
+        localStorage.setItem('roadmapPrintHint','1');
+      }
+    })();
+  </script>
+</body>
+</html>
