@@ -1,1 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nedits Edition - Skills Roadmap Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #5b21b6;
+      --primary-light: #8b5cf6;
+      --secondary: #06b6d4;
+      --accent: #f97316;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --success: #10b981;
+      --border-radius: 12px;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+      box-shadow: var(--shadow-md);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 3rem;
+    }
+
+    .roadmap-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .card-header {
+      padding: 1.5rem;
+      color: white;
+      position: relative;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .card-period {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .card-desc {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .card-link:hover {
+      color: var(--primary-light);
+      gap: 8px;
+    }
+
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .status-upcoming {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .status-current {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-completed {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .year-divider {
+      display: flex;
+      align-items: center;
+      margin: 2rem 0;
+      color: var(--text-light);
+    }
+
+    .year-divider::before,
+    .year-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .year-divider span {
+      padding: 0 1rem;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      color: var(--text-light);
+      border-top: 1px solid #e2e8f0;
+    }
+
+    @media (max-width: 768px) {
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nedits Edition - Skills Roadmap Hub</h1>
+    <p>Your complete learning journey from 2025 to 2030. Click on any card to view the detailed roadmap for that period.</p>
+  </header>
+
+  <div class="container">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="2025">2025</button>
+      <button class="filter-btn" data-filter="2026">2026</button>
+      <button class="filter-btn" data-filter="2027">2027</button>
+      <button class="filter-btn" data-filter="2028">2028</button>
+      <button class="filter-btn" data-filter="2029">2029</button>
+      <button class="filter-btn" data-filter="2030">2030</button>
+    </div>
+
+    <div class="year-divider">
+      <span>2025</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2025">
+        <div class="card-header" style="background: linear-gradient(135deg, #6d28d9, #9333ea);">
+          <div class="card-title">Foundation Phase</div>
+          <div class="card-period">Sep - Dec 2025</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Computer basics, office tools, internet essentials, and design orientation to build a strong foundation.</p>
+          <div class="card-footer">
+            <a href="sep-dec-2025.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-divider">
+      <span>2026</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2026">
+        <div class="card-header" style="background: linear-gradient(135deg, #ef4444, #fb7185);">
+          <div class="card-title">Design Fundamentals</div>
+          <div class="card-period">Jan - Jun 2026</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Photo editing, graphic design principles, vector graphics, and branding basics.</p>
+          <div class="card-footer">
+            <a href="jan-jun-2026.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" data-year="2026">
+        <div class="card-header" style="background: linear-gradient(135deg, #0ea5a5, #06b6d4);">
+          <div class="card-title">Motion & UI/UX</div>
+          <div class="card-period">Jul - Dec 2026</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Video editing, motion graphics, and UI/UX design fundamentals.</p>
+          <div class="card-footer">
+            <a href="jul-dec-2026.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-divider">
+      <span>2027</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2027">
+        <div class="card-header" style="background: linear-gradient(135deg, #f59e0b, #f97316);">
+          <div class="card-title">Web Development</div>
+          <div class="card-period">Jan - Jun 2027</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">HTML, CSS, JavaScript fundamentals, Git, and performance optimization.</p>
+          <div class="card-footer">
+            <a href="jan-jun-2027.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" data-year="2027">
+        <div class="card-header" style="background: linear-gradient(135deg, #10b981, #34d399);">
+          <div class="card-title">React & Backend</div>
+          <div class="card-period">Jul - Dec 2027</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">React, Node.js, Express, databases, and authentication.</p>
+          <div class="card-footer">
+            <a href="jul-dec-2027.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-divider">
+      <span>2028</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2028">
+        <div class="card-header" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+          <div class="card-title">Advanced Development</div>
+          <div class="card-period">Jan - Jun 2028</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">TypeScript, Next.js, React Native, and app deployment.</p>
+          <div class="card-footer">
+            <a href="jan-jun-2028.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" data-year="2028">
+        <div class="card-header" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+          <div class="card-title">E-commerce & Automation</div>
+          <div class="card-period">Jul - Dec 2028</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Headless CMS, e-commerce, payments, automation, and chatbots.</p>
+          <div class="card-footer">
+            <a href="jul-dec-2028.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-divider">
+      <span>2029</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2029">
+        <div class="card-header" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
+          <div class="card-title">Digital Marketing</div>
+          <div class="card-period">Jan - Jun 2029</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">SEO, ads, analytics, email marketing, and funnel optimization.</p>
+          <div class="card-footer">
+            <a href="jan-jun-2029.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" data-year="2029">
+        <div class="card-header" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+          <div class="card-title">AI & No-Code</div>
+          <div class="card-period">Jul - Dec 2029</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Content creation, AI tools, no-code platforms, and DevOps basics.</p>
+          <div class="card-footer">
+            <a href="jul-dec-2029.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="year-divider">
+      <span>2030</span>
+    </div>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card" data-year="2030">
+        <div class="card-header" style="background: linear-gradient(135deg, #14b8a6, #2dd4bf);">
+          <div class="card-title">Capstone Projects</div>
+          <div class="card-period">Jan - Jun 2030</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Full-stack development, mobile apps, and portfolio building.</p>
+          <div class="card-footer">
+            <a href="jan-jun-2030.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-card" data-year="2030">
+        <div class="card-header" style="background: linear-gradient(135deg, #f97316, #fb923c);">
+          <div class="card-title">Launch Preparation</div>
+          <div class="card-period">Jul - Dec 2030</div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Product launch, client acquisition, and business systems.</p>
+          <div class="card-footer">
+            <a href="jul-dec-2030.html" class="card-link">View Roadmap <i class="fas fa-arrow-right"></i></a>
+            <span class="status-badge status-upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Nedits Edition - Skills Roadmap Hub | 2025-2030</p>
+    <p>Print individual roadmaps for your study wall or save as PDF for reference</p>
+  </footer>
+
+  <script>
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const roadmapCards = document.querySelectorAll('.roadmap-card');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          const filterValue = button.getAttribute('data-filter');
+          
+          // Show all cards if filter is 'all'
+          if (filterValue === 'all') {
+            roadmapCards.forEach(card => {
+              card.style.display = 'flex';
+            });
+            return;
+          }
+          
+          // Otherwise, show only cards with matching year
+          roadmapCards.forEach(card => {
+            if (card.getAttribute('data-year') === filterValue) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
